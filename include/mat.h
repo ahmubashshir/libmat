@@ -48,32 +48,32 @@
 	#define ENDR "\xD9"
 #endif //OS Specific options
 #if defined(__debug__)
-    #define Destruct1 std::cout<<this->name<<"["<<i<<"] Destructing"<<std::endl
-    #define Destruct2 std::cout<<"Destructing "<<this->name<<std::endl;
-    #define Construct1 std::cout<<this->name<<"["<<i<<"] Constructing"<<std::endl
-    #define Construct2 std::cout<<"Constructing "<<this->name<<std::endl;
+	#define Destruct1 std::cout<<this->name<<"["<<i<<"] Destructing"<<std::endl
+	#define Destruct2 std::cout<<"Destructing "<<this->name<<std::endl;
+	#define Construct1 std::cout<<this->name<<"["<<i<<"] Constructing"<<std::endl
+	#define Construct2 std::cout<<"Constructing "<<this->name<<std::endl;
 #else
-    #define Destruct1 std::cout<<""
-    #define Destruct2 std::cout<<""
-    #define Construct1 std::cout<<""
-    #define Construct2 std::cout<<""
+	#define Destruct1 std::cout<<""
+	#define Destruct2 std::cout<<""
+	#define Construct1 std::cout<<""
+	#define Construct2 std::cout<<""
 #endif // Debug Options
 #ifdef _limit_
-    #define exception_handle_1 {std::cout<<"Buffer Overflow Error\n";throw col;}
-    #define exception_handle_2 {std::cout<<"Buffer Overflow Error\n";throw row;}
-    #if _limit_ > 2
+	#define exception_handle_1 {std::cout<<"Buffer Overflow Error\n";throw col;}
+	#define exception_handle_2 {std::cout<<"Buffer Overflow Error\n";throw row;}
+	#if _limit_ > 2
 		#define exception_limit row<_limit_&&col<_limit_
-    #else
+	#else
 		#define exception_limit row<5&&col<5
 	#endif
-    #define exception_handle_buuf {std::cout<<"Buffer Underflow Error\n";throw row+col;}
+	#define exception_handle_buuf {std::cout<<"Buffer Underflow Error\n";throw row+col;}
 #else
 	#define exception_limit true
 	#define exception_handle_buuf std::cout<<""
-    #define exception_handle_1 std::cout<<""
-    #define exception_handle_2 std::cout<<""
-    #warning "You should use limited element matrics to protect from buffer overflow by adding the next line"
-    #warning "#define _limit_ <max-index>+1"
+	#define exception_handle_1 std::cout<<""
+	#define exception_handle_2 std::cout<<""
+	#warning "You should use limited element matrics to protect from buffer overflow by adding the next line"
+	#warning "#define _limit_ <max-index>+1"
 #endif // Buffer Limit
 #if defined(_noauto)
 #define indent if((this->ret[i][j]/100000)>0) std::cout<<" ";\
@@ -97,8 +97,8 @@ else{unsigned lenmax=get_len(j),len2=int_len((long int)ret[i][j]);for(unsigned z
 template <class Matrics>
 class mat
 {
-    private:
-        unsigned int row,col;
+	private:
+		unsigned int row,col;
 		Matrics** ret;
 		const char *name;bool dimerr;char *op1,*op2,*op;
 	public:
@@ -139,7 +139,7 @@ class mat
 			{
 				delete [] this->ret[i];
 				Destruct1;
-        	}
+			}
 			Destruct2;
 		}
 		/*
@@ -152,14 +152,14 @@ class mat
 		*/
 		void in(void)
 		{
-	        for(unsigned int i=0;i<this->row;i++)
+			for(unsigned int i=0;i<this->row;i++)
 			{
 				std::cout<<"Row "<<i<<":";
-        	    for(unsigned int j=0;j<this->col;j++)
-        	    {
-                        	std::cin>>this->ret[i][j];
+				for(unsigned int j=0;j<this->col;j++)
+				{
+							std::cin>>this->ret[i][j];
 				}
-        	}
+			}
 		}
 		/*
 		* name: mat::int_len()
@@ -170,21 +170,21 @@ class mat
 		* @overloaded:no
 		*/
 		unsigned int_len(long int a)
-        {
-            long int n=abs(a);
-            if(n<10) return 1;
-            else
-            {
-                unsigned r=1;
-                while(n>=10)
-                {
-                    n/=10;
-                    r++;
-                }
-                return r;
-            }
-        }
-        /*
+		{
+			long int n=abs(a);
+			if(n<10) return 1;
+			else
+			{
+				unsigned r=1;
+				while(n>=10)
+				{
+					n/=10;
+					r++;
+				}
+				return r;
+			}
+		}
+		/*
 		* name: mat::out()
 		* dsc: Output Function
 		* @param None
@@ -304,7 +304,7 @@ class mat
 			{
 				delete [] this->ret[i];
 				Destruct1;
-        	}
+			}
 			Destruct2;
 			//Init::TODO:exception handler
 			this->dimerr=false;
@@ -329,7 +329,7 @@ class mat
 		*/
 		unsigned get_col(void)
 		{
-		    return this->col;
+			return this->col;
 		}
 		/*
 		* name: mat::row()
@@ -341,7 +341,7 @@ class mat
 		*/
 		int get_row(void)
 		{
-		    return this->row;
+			return this->row;
 		}
 		/*
 		* name: mat::get_raw()
@@ -353,7 +353,7 @@ class mat
 		*/
 		Matrics** get_raw(void)
 		{
-		    return this->ret;
+			return this->ret;
 		}
 		/*
 		* name: mat::get_len()
@@ -364,15 +364,15 @@ class mat
 		* @overloaded:no
 		*/
 		unsigned get_len(unsigned c)
-        {
-            unsigned maxlen=0,len=0;
-            for(unsigned int i=0;i<row;i++)
-            {
-                len=int_len((long int)this->ret[i][c]);
-                maxlen=(len>=maxlen)?len:maxlen;
-            }
-            return maxlen;
-        }
+		{
+			unsigned maxlen=0,len=0;
+			for(unsigned int i=0;i<row;i++)
+			{
+				len=int_len((long int)this->ret[i][c]);
+				maxlen=(len>=maxlen)?len:maxlen;
+			}
+			return maxlen;
+		}
 };
 template<class Matrics>
 void mat<Matrics>::out(void)
@@ -392,7 +392,7 @@ void mat<Matrics>::out(void)
 				if((this->row>=2)&&(j==0)&&(this->row-i==1)) std::cout<<ENDL;
 				if((j==0)&&(this->row>1)) std::cout<<" ";
 				std::cout<<this->ret[i][j];
-                indent
+				indent
 				if((this->row==1)&&(j>=0)&&((this->col-j)>1)) std::cout<<" ";
 				if((this->row>=2)&&(j==this->col-1)&&(i==0)) std::cout<<STARTR;
 				if((this->row>1)&&(this->col-j==1)&&(i!=0)&&(this->row-i!=1)) std::cout<<MIDR;
@@ -421,13 +421,13 @@ void mat<double>::out()
 				if((this->row>=2)&&(j==0)&&(this->row-i==1)) std::cout<<ENDL;
 				if((j==0)&&(this->row>1)) std::cout<<" ";
 				std::cout<<this->ret[i][j];
-                if(get_len(j)==int_len((long int)ret[i][j])) std::cout<<" ";
-                else
-                {
-                    unsigned lenmax=get_len(j),len2=int_len((long int)ret[i][j]);
-                    for(unsigned z=0;z<lenmax-len2+1;z++)
-                    std::cout<<" ";
-                }
+				if(get_len(j)==int_len((long int)ret[i][j])) std::cout<<" ";
+				else
+				{
+					unsigned lenmax=get_len(j),len2=int_len((long int)ret[i][j]);
+					for(unsigned z=0;z<lenmax-len2+1;z++)
+					std::cout<<" ";
+				}
 				if((this->row==1)&&(j>=0)&&((this->col-j)>1)) std::cout<<" ";
 				if((this->row>=2)&&(j==this->col-1)&&(i==0)) std::cout<<STARTR;
 				if((this->row>1)&&(this->col-j==1)&&(i!=0)&&(this->row-i!=1)) std::cout<<MIDR;
@@ -456,13 +456,13 @@ void mat<float>::out(void)
 				if((this->row>=2)&&(j==0)&&(this->row-i==1)) std::cout<<ENDL;
 				if((j==0)&&(this->row>1)) std::cout<<" ";
 				else printf("%.2f",this->ret[i][j]);
-                if(get_len(j)==int_len((long int)ret[i][j])) std::cout<<" ";
-                else
-                {
-                    unsigned lenmax=get_len(j),len2=int_len((long int)ret[i][j]);
-                    for(unsigned z=0;z<lenmax-len2+1;z++)
-                    std::cout<<" ";
-                }
+				if(get_len(j)==int_len((long int)ret[i][j])) std::cout<<" ";
+				else
+				{
+					unsigned lenmax=get_len(j),len2=int_len((long int)ret[i][j]);
+					for(unsigned z=0;z<lenmax-len2+1;z++)
+					std::cout<<" ";
+				}
 				if((this->row==1)&&(j>=0)&&((this->col-j)>1)) std::cout<<" ";
 				if((this->row>=2)&&(j==this->col-1)&&(i==0)) std::cout<<STARTR;
 				if((this->row>1)&&(this->col-j==1)&&(i!=0)&&(this->row-i!=1)) std::cout<<MIDR;
