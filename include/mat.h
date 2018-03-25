@@ -1,6 +1,6 @@
 
 /*
- * matrics.hpp
+ * mat.h
  * 
  * Copyright 2018 Ahmad Hasan Mubashshir <ahmubashshir@gmail.com>
  * 
