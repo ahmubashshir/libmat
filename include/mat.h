@@ -171,7 +171,7 @@ class mat
 		*/
 		unsigned int_len(long int a)
 		{
-			long int n=abs(a);
+			long int n=std::abs(a);
 			if(n<10) return 1;
 			else
 			{
