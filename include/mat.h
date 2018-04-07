@@ -32,7 +32,7 @@
 #ifndef devC
 #define devC "\x50\x6F\x6C\x79\x6D\x61\x74\x68\x20\x54\x65\x61\x6d"
 #endif // devC
-#if defined(linux) || defined(__linux__) || defined(__linux) || defined(unix) || defined(__unix) || defined(__unix__) || defined(__APPLE__) || defined(__MACH__) || defined(__FreeBSD__) || defined(__hpux) || defined(_AIX)
+#if defined(linux) || defined(__gnu_linux__) || defined(__ANDROID__) || defined(__linux__) || defined(__linux) || defined(unix) || defined(__unix) || defined(__unix__) || defined(__APPLE__) || defined(__MACH__) || defined(__FreeBSD__) || defined(__hpux) || defined(_AIX)||
 	#define STARTL "\342\216\241"
 	#define MIDL "\342\216\242"
 	#define ENDL "\342\216\243"
