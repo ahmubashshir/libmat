@@ -1,8 +1,9 @@
-language:cpp
+language: cpp
 os:
-- linux
-- osx
-- windows
-compiler: g++
+  - linux
+  - osx
+compiler:
+  - g++
+  - clang
 script:
 - make
