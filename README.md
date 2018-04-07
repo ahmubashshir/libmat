@@ -1,5 +1,4 @@
-# libmat [![Build Status](https://travis-ci.org/ahmubashshir/libmat.svg?branch=master)](https://travis-ci.org/ahmubashshir/libmat)
-<br />[![Downloads](https://img.shields.io/badge/dynamic/xml.svg?label=Downloads&url=1&query=1&prefix=1&suffix=1)]()
+# libmat [![Build Status](https://travis-ci.org/ahmubashshir/libmat.svg?branch=master)](https://travis-ci.org/ahmubashshir/libmat) ![GPL](https://img.shields.io/badge/license-GPL-blue.svg) ![Downloads](https://img.shields.io/github/downloads/ahmubashshir/libmat/total.svg)
 ## A library for calculating matrics
 
 ### Currently Supports:
