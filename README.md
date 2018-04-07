@@ -3,22 +3,20 @@
 ## A library for calculating matrics
 
 ### Currently Supports:
+- Dynamic Sized Matrics     :heavy_check_mark:
+- Reinitialization:`mat.reinit(column,row,"MatA")`    :heavy_check_mark:
+- Book like output: `mat.out()`     :heavy_check_mark:
+- intelligent Indentation in output     :heavy_check_mark:
+- Add operation : `mat.add(mata,matb);`     :heavy_check_mark:
+- Subtract Operation : `mat.sub(mata,matb);`     :heavy_check_mark:
+- Multiply Operation:     :heavy_check_mark:
+   *  Matrics : `mat.mul(mata,matb);`     :heavy_check_mark:
+   *  Scalar  : `mat.add(3);`     :heavy_check_mark:
+- Accessable as raw(array): `mat.get_raw()`     :heavy_check_mark:
 
-
-- [x] Dynamic Sized Matrics
-- [x] Reinitialization:`mat.reinit(column,row,"MatA")`
-- [x] Book like output: `mat.out()`
-- [x] intelligent Indentation in output
-- [x] Add operation : `mat.add(mata,matb);`
-- [x] Subtract Operation : `mat.sub(mata,matb);`
-- [x] Multiply Operation:
-  1. Matrics : `mat.mul(mata,matb);`
-  2. Scalar  : `mat.add(3);`
-- [x] Accessable as raw(array): `mat.get_raw()`
-
-### Would be Supported
-- [ ] Transversing
-- [ ] Determinant
-- [ ] Identity matrices
-- [ ] Inverse matrix
-- [ ] Operator overriding
+### Would be Supported:
+- Transversing     :heavy_multiplication_x:
+- Determinant     :heavy_multiplication_x:
+- Identity matrices     :heavy_multiplication_x:
+- Inverse matrix     :heavy_multiplication_x:
+- Operator overriding     :heavy_multiplication_x:
