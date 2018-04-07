@@ -1,4 +1,4 @@
-# libmat [![Build Status](https://travis-ci.org/ahmubashshir/libmat.svg?branch=master)](https://travis-ci.org/ahmubashshir/libmat) ![Downloads](https://img.shields.io/github/downloads/ahmubashshir/libmat/total.svg?longCache=true&style=plastic&link=https://github.com/ahmubashshir/libmat/archive/master.zip&link=https://github.com/ahmubashshir/libmat/releases) [![GitHub issues](https://img.shields.io/github/issues/ahmubashshir/libmat.svg)](https://github.com/ahmubashshir/libmat/issues)  [![GitHub license](https://img.shields.io/github/license/ahmubashshir/libmat.svg)](https://github.com/ahmubashshir/libmat/blob/master/LICENSE)
+# libmat [![Build Status](https://travis-ci.org/ahmubashshir/libmat.svg?branch=master)](https://travis-ci.org/ahmubashshir/libmat) [![Downloads](https://img.shields.io/github/downloads/ahmubashshir/libmat/total.svg)](https://github.com/ahmubashshir/libmat/releases) [![GitHub issues](https://img.shields.io/github/issues/ahmubashshir/libmat.svg)](https://github.com/ahmubashshir/libmat/issues)  [![GitHub license](https://img.shields.io/github/license/ahmubashshir/libmat.svg)](https://github.com/ahmubashshir/libmat/blob/master/LICENSE)
 ## A library for calculating matrics
 
 ### Currently Supports:
@@ -19,3 +19,5 @@
 - Identity matrices     :heavy_multiplication_x:
 - Inverse matrix     :heavy_multiplication_x:
 - Operator overriding     :heavy_multiplication_x:
+### Build History
+[![Build](https://buildstats.info/travisci/chart/ahmubashshir/libmat?buildCount=7)](https://travis-ci.org/ahmubashshir/libmat/builds)
