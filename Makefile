@@ -7,4 +7,4 @@ mat: header
 	$(CPP) -Wall -I include examples/mat.cpp -o mat
 header:
 	@echo "Checking Header"
-	$(CPP) -fsyntax-only include/mat.h
+	$(CPP) -fsyntax-only -Wcpp include/mat.h
