@@ -1,31 +1,31 @@
 
 /*
  * mat.h
- * 
+ *
  * Copyright 2018 Ahmad Hasan Mubashshir <ahmubashshir@gmail.com>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301, USA.
- * 
- * 
+ *
+ *
  */
 
 #ifndef __MATRICS__
 #define __MATRICS__
 #define __MATRICS_MAGOR__ 3
-#define __MATRICS_MINOR__ 2
+#define __MATRICS_MINOR__ 4
 #ifndef devN
 #define devN "\x41\x68\x6D\x61\x64\x20\x48\x61\x73\x61\x6E\x20\x4D\x75\x62\x61\x73\x68\x73\x68\x69\x72"
 #endif // devN
@@ -109,10 +109,10 @@ class mat
 		* @return None
 		* @auto-call:yes
 		* @overloaded:no
-		*/		
+		*/
 		mat(unsigned int row,unsigned int col,const char *name)
 		{
-			
+
 			this->dimerr=false;
 			this->row=row;this->col=col;this->name=name;
 			if(col<=0&&row<=0) exception_handle_buuf;
