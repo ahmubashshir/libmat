@@ -12,6 +12,7 @@
    *  Matrics : `mat.mul(mata,matb);`
    *  Scalar  : `mat.add(3);`
 - Accessable as raw(array): `mat.get_raw()`
+- Dynamic Linking
 
 ### Would be Supported:
 - Transversing
@@ -20,5 +21,6 @@
 - Inverse matrix
 - Operator overriding
 - C Linking Support
+- Exception Handlers
 ### Build History
 [![Build](https://buildstats.info/travisci/chart/Polymath-Team/libmat?buildCount=7)](https://travis-ci.org/Polymath-Team/libmat/builds)
