@@ -1,17 +1,17 @@
-CPP=g++
+CXX=g++
 CPPFLAGS=-Wall -fexceptions -Iinclude -Linclude -lmat
 LIBFLAGS=-shared -fPIC -Wall -fexceptions
 .PHONY: all
 all: libmat.so
 mat: libmat.so
 	@echo "Building example"
-	$(CPP) examples/mat.cpp  $(CPPFLAGS) -o examples/mat
+	$(CXX) examples/mat.cpp  $(CPPFLAGS) -o examples/mat
 header:
 	@echo "Checking Header"
-	$(CPP) -fsyntax-only -Wcpp include/mat.h
+	$(CXX) -fsyntax-only -Wcpp include/mat.h
 libmat.so: header
 	@echo "Building Library"
-	$(CPP) include/lib.cpp $(LIBFLAGS) -o include/libmat.so
+	$(CXX) include/lib.cpp $(LIBFLAGS) -o include/libmat.so
 clean: 
 	@echo "Cleaning"
 	rm -f include/libmat.so examples/mat libmat.so
