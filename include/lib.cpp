@@ -22,10 +22,6 @@
  * 
  * 
  */
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <cstring>
 #include <iostream>
 #include <exception>
 #include "mat.h"
