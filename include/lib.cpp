@@ -314,5 +314,4 @@ extern "C++" {
 	template class mat<unsigned short>;
 	template class mat<unsigned long>;
 	template class mat<unsigned long long>;
-	
 }
