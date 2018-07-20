@@ -24,6 +24,8 @@
  */
 #include <iostream>
 #include <exception>
+#include <cstdlib>
+#include <cstdio>
 #include "mat.h"
 //extern "C" {
 //}
