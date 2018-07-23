@@ -8,13 +8,13 @@ else
 	ifeq ($(UNAME_S),Linux)
 		LIB=libmat.so
 		PATHSEP=/
-		EXEC=mat
+		EXEC=mat.out
 		CP=cp
 	endif
 	ifeq ($(UNAME_S),Darwin)
 		LIB=libmat.dylib
 		PATHSEP=/
-		EXEC=mat
+		EXEC=mat.out
 		CP=cp
 	endif
 endif
