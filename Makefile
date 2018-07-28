@@ -57,3 +57,4 @@ debug: clean
 	LD_LIBRARY_PATH=. gdb examples$(PATHSEP)${EXEC}
 	@make clean
 
+
