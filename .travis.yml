@@ -1,10 +1,18 @@
 language: cpp
 os:
-  - linux
-  - osx
+- linux
+- osx
 compiler:
-  - g++
-  - clang
+- g++
+- clang
 script:
 - make
-
+deploy:
+  provider: releases
+  api_key:
+    secure: Cda2K4DpOpWRzcEewGcVWxl6ZkTWaTl/cWR0sj2RAmyx4h92TJuSt0feEGPaBfjhh6ocpD+YU+xLW24pOphaKg6w6cWPXGUXD2jdipvQCMs/gmZaXA+ejRdIG96GbyOqzxybSY9KlcMC5QTJVhOwG+dh5iefgQyWgeXD0p+q2R+T6Awk2vlZqilgGSGCiA//XNoXL683/vicXAGsCD4umUj8iOEFoohyhljuK6gjlwa+BcoQnmLDZT9ToF9jbajEY+Pl0Vm1PNy6c9/C+GV/eqYjneJoobOSn/hc1WCm2MQFiBnc1BfSBvPZbu+ARbpwoNNxAuGcVpiQM4VCZFIVRrQzJU7/uQCQQ4ctarRLJOD6hj99rZIdpd8yM0mGOMsj3Zzy2gNaqaM6Rl1tI++4G2+izzCRsZsHO5o29zH1sgBe0QARrnBAyf08OBgAYZP++sEM1v9g6PJd7k5FBVJV6HxZK5R6F1BMaPH7OsbgNdHaHZzmm+Xugv3BieD9D3MjiUM1gnXtbRE4EDRuOZHdXnB2oZnuBrO5YTybLrQXpiPR5MjJrBvRaCJGif/tCzuNPuZbbYDMcYDCptSt7jTY2WP8iSqETn0m9meFHLSZ0l4EF6GTbfeNWNDtQZ9QeTWCb3D+aVwGrP9tDHqACLWCu/tCM9ySMdjFwOrUYEdnfxU=
+  file:
+  	- "include/libmat.so"
+  	- "include/libmat.dylib"
+  on:
+    repo: Polymath-Team/libmat
