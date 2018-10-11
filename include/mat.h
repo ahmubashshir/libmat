@@ -1,4 +1,3 @@
-
 /*
  * mat.h
  *
@@ -21,7 +20,6 @@
  *
  *
  */
-
 #ifndef __MATRICS__
 #define __MATRICS__
 #define __MATRICS_MAGOR__ 3
@@ -47,45 +45,91 @@
 	#define MIDR "\xB3"
 	#define ENDR "\xD9"
 #endif //OS Specific options
-#if defined(__debug__)
-	#define Destruct1 std::cout<<this->name<<"["<<i<<"] Destructing"<<std::endl
-	#define Destruct2 std::cout<<"Destructing "<<this->name<<std::endl;
-	#define Construct1 std::cout<<this->name<<"["<<i<<"] Constructing"<<std::endl
-	#define Construct2 std::cout<<"Constructing "<<this->name<<std::endl;
-#else
-	#define Destruct1 std::cout<<""
-	#define Destruct2 std::cout<<""
-	#define Construct1 std::cout<<""
-	#define Construct2 std::cout<<""
-#endif // Debug Options
 #ifdef _limit_
-	#define exception_handle_1 {std::cout<<"Buffer Overflow Error\n";throw col;}
-	#define exception_handle_2 {std::cout<<"Buffer Overflow Error\n";throw row;}
-	#if _limit_ > 2
-		#define exception_limit row<_limit_&&col<_limit_
-	#else
-		#define exception_limit row<5&&col<5
-	#endif
-	#define exception_handle_buuf {std::cout<<"Buffer Underflow Error\n";throw row+col;}
+	unsigned long __MAX_INDEX__=_limit_;
 #else
-	#define exception_limit true
-	#define exception_handle_buuf std::cout<<""
-	#define exception_handle_1 std::cout<<""
-	#define exception_handle_2 std::cout<<""
-	//#warning "You should use limited element matrics to protect from buffer overflow by adding the next line"
-	//#warning "#define _limit_ <max-index>+1"
+	unsigned long __MAX_INDEX__=5;
 #endif // Buffer Limit
-#if defined(_noauto)
-#define indent if((this->ret[i][j]/100000)>0) std::cout<<" ";\
-else if((this->ret[i][j]/10000)>0) std::cout<<"  ";\
-else if((this->ret[i][j]/1000)>0) std::cout<<"   ";\
-else if((this->ret[i][j]/100)>0) std::cout<<"    ";\
-else if((this->ret[i][j]/10)>0) std::cout<<"     ";\
-else std::cout<<"      ";
-#else
 #define indent if(get_len(j)==int_len((long int)ret[i][j])) std::cout<<" ";\
 else{unsigned lenmax=get_len(j),len2=int_len((long int)ret[i][j]);for(unsigned z=0;z<lenmax-len2+1;z++) {std::cout<<" ";}}
-#endif //Auto Indent
+#include <exception>
+namespace math
+{
+	using namespace std;
+	enum errID {
+		gen_error=-1,
+		div_by_zero=-2,
+		out_of_range=-3,
+		index_lteq_zero=-4,
+		exp_on_zero=-5
+	};
+	class error: public exception {
+		public:
+			const math::errID val=gen_error;
+			virtual const char*  what() const throw()
+			{
+				return "math::error";
+			}
+			virtual const char* msg() const throw()
+			{
+				return "General Mathmetical exception";
+			}
+
+	};
+	class divzero:public error
+	{
+		public:
+			const math::errID val=div_by_zero;
+			virtual const char*  what() const throw()
+			{
+				return "math::error::divide_by_zero";
+			}
+			virtual const char* msg() const throw()
+			{
+				return "Cannot divide by 0";
+			}
+	};
+	class index_range:public std::bad_alloc
+	{
+		public:
+			const math::errID val=out_of_range;
+			virtual const char*  what() const throw()
+			{
+				return "math::error::index_range";
+			}
+			virtual const char* msg() const throw()
+			{
+
+				return "Index is greater than maximum allowed value";
+			}
+	};
+	class index_zero:public error
+	{
+		public:
+			const math::errID val=index_lteq_zero;
+			virtual const char*  what() const throw()
+			{
+				return "math::error::index_zero";
+			}
+			virtual const char* msg() const throw()
+			{
+				return "Index is less than or equal to 0";
+			}
+	};
+	class exp_zero:public error
+	{
+		public:
+			const math::errID val=exp_on_zero;
+			virtual const char*  what() const throw()
+			{
+				return "math::error::exp_zero";
+			}
+			virtual const char* msg() const throw()
+			{
+				return "0^0 is undefined";
+			}
+	};
+}
 template <class T>
 class mat
 {

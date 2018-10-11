@@ -35,15 +35,13 @@ extern "C++" {
 	{
 		this->dimerr=false;
 		this->row=row;this->col=col;this->name=name;
-		if(col<=0&&row<=0) exception_handle_buuf;
-		if(row>0&&exception_limit) this->ret=new T* [row];
-		else exception_handle_2;
+		if(col<=0&&row<=0) throw math::index_zero();
+		if(row>__MAX_INDEX__&&col>__MAX_INDEX__)throw math::index_range();
+		if(row>0&&col>0) this->ret=new T* [row];
 		for(unsigned  int i=0;i<row;i++)
 		{
 			if(col>0)this->ret[i]=new T[col];
-			Construct1;
 		}
-		Construct2;
 	}
 	template <class T>
 	mat<T>::~mat()
@@ -51,9 +49,7 @@ extern "C++" {
 		for(unsigned int i=0;i<this->row;i++)
 		{
 			delete [] this->ret[i];
-			Destruct1;
 		}
-		Destruct2;
 	}
 	template <class T>
 	void mat<T>::in(void)
@@ -159,21 +155,17 @@ extern "C++" {
 		for(unsigned int i=0;i<this->row;i++)
 		{
 			delete [] this->ret[i];
-			Destruct1;
 		}
-		Destruct2;
 		//Init::TODO:exception handler
 		this->dimerr=false;
 		this->row=row;this->col=col;this->name=name;
-		if(row>0&&exception_limit) this->ret=new T* [row];
-		else exception_handle_2;
+		if(col<=0&&row<=0) throw math::index_zero();
+		if(row>__MAX_INDEX__&&col>__MAX_INDEX__)throw math::index_range();
+		if(row>0&&col>0) this->ret=new T* [row];
 		for(unsigned  int i=0;i<row;i++)
 		{
-			if(col>0) this->ret[i]=new T[col];
-			else exception_handle_1;
-			Construct1;
+			if(col>0)this->ret[i]=new T[col];
 		}
-		Construct2;
 	}
 	template <class T>
 	unsigned mat<T>::get_col(void)
