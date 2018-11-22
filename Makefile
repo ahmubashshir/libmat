@@ -7,16 +7,13 @@ else
 	UNAME_S:= $(shell uname -s)
 	ifeq ($(UNAME_S),Linux)
 		LIB=libmat.so
-		PATHSEP=/
-		EXEC=mat.out
-		CP=cp
 	endif
 	ifeq ($(UNAME_S),Darwin)
 		LIB=libmat.dylib
-		PATHSEP=/
-		EXEC=mat.out
-		CP=cp
 	endif
+	PATHSEP=/
+	EXEC=mat.out
+	CP=cp
 endif
 ifneq ($(CXX),)
 	CXX=g++
@@ -38,7 +35,7 @@ header:
 $(LIB): header
 	@echo "Building $(LIB)"
 	$(CXX) include$(PATHSEP)lib.cpp $(LIBFLAGS) -o include$(PATHSEP)$(LIB)
-clean: 
+clean:
 	@echo "Cleaning"
 	rm -f include$(PATHSEP)libmat.so examples$(PATHSEP)$(EXEC) $(LIB)
 test: clean $(EXEC)
@@ -56,5 +53,3 @@ debug: clean
 	@$(CP) include$(PATHSEP)$(LIB) $(LIB)
 	LD_LIBRARY_PATH=. gdb examples$(PATHSEP)${EXEC}
 	@make clean
-
-
